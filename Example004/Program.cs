@@ -10,7 +10,7 @@
 //         array[i] = new Random().Next(0, 2);
 //         System.Console.WriteLine(array[i]);
 //     }
-   
+
 // }
 
 // System.Console.WriteLine("Введите число");
@@ -19,21 +19,45 @@
 // PrintRandomArray(num);
 
 
-Console.WriteLine("\nВывод массива:"); 
-        for (int i = 0; i < array.Length; i++) 
-        {
-            Console.Write(array[i] + " ");  
-        }
+//Console.WriteLine("\nВывод массива:"); 
+// for (int i = 0; i < array.Length; i++) 
+// {
+//     Console.Write(array[i] + " ");  
+// }
 
-nt[] array = new int[8];
-int length = array.Length;
+//int[] array = new int[8];
+//int length = array.Length;
 
-for (int i = 0; i < length; i++)
+int[] GetArrayRandom(int size)
 {
-    array [i] = new Random().Next(0, 2);
+    int[] array = new int[size];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(2);
+    }
+    return array;
 }
 
-foreach (var item in array)
+void FillArrayRandom(int[] massiv)
 {
-    Console.Write(item + " ");
+    for (int i = 0; i < massiv.Length; i++)
+    {
+        massiv[i] = new Random().Next(2);
+    }
 }
+
+void PrintArray(int[] massiv)
+{
+    foreach (var item in massiv) // для каждой переменной (var) item в массиве что-то сделать
+    {
+        Console.Write(item + " ");
+    }
+}
+
+int[] array = new int[8];
+FillArrayRandom(array);
+PrintArray(array);
+
+int[] array2 = GetArrayRandom(8);
+System.Console.WriteLine();
+PrintArray(array2);
